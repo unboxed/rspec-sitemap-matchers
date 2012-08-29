@@ -1,6 +1,6 @@
-require "rspec-sitemap-matchers/version"
+require "rspec/sitemap/matchers/version"
 
-module Rspec
+module RSpec
   module Sitemap
     module Matchers
       # Your code goes here...
