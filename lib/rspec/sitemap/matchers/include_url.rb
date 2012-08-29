@@ -8,7 +8,7 @@ module RSpec::Sitemap::Matchers
     def matches?(actual)
       @actual = actual
       xpath = construct_xpath
-      actual.xpath(xpath).any?
+      Nokogiri::XML(@actual).xpath(xpath).any?
     end
 
     def failure_message
