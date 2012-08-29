@@ -4,14 +4,14 @@ describe "include_url matcher" do
   include RSpec::Sitemap::Matchers
 
   context "on a File" do
-    subject { fixture('basic') }
+    let(:sitemap) { fixture('basic') }
     it "passes" do
-      subject.should include_url('http://www.example.com')
+      sitemap.should include_url('http://www.example.com')
     end
 
     it "fails" do
       expect {
-        subject.should include_url('http://www.not-an-example.com')
+        sitemap.should include_url('http://www.not-an-example.com')
       }.to raise_error {|e|
         e.message.should match("to include a URL to http://www.not-an-example.com")
       }
@@ -21,15 +21,15 @@ describe "include_url matcher" do
 
   context "on a String" do
 
-    subject { fixture('basic').read }
+    let(:sitemap) { fixture('basic').read }
 
     it "passes" do
-      subject.should include_url('http://www.example.com')
+      sitemap.should include_url('http://www.example.com')
     end
 
     it "fails" do
       expect {
-        subject.should include_url('http://www.not-an-example.com')
+        sitemap.should include_url('http://www.not-an-example.com')
       }.to raise_error {|e|
         e.message.should match("to include a URL to http://www.not-an-example.com")
       }
