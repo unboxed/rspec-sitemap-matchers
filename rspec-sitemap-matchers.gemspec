@@ -2,10 +2,10 @@
 require File.expand_path('../lib/rspec-sitemap-matchers/version', __FILE__)
 
 Gem::Specification.new do |gem|
-  gem.authors       = ["Attila Györffy"]
-  gem.email         = ["attila@attilagyorffy.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.authors       = ["Attila Györffy"]
+  gem.email         = ["attila.gyorffy@unboxedconsulting.com"]
+  gem.description   = %q{RSpec for Sitemaps}
+  gem.summary       = %q{RSpec matchers for the Sitemap protocol}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($\)
