@@ -14,4 +14,6 @@ Gem::Specification.new do |gem|
   gem.name          = "rspec-sitemap-matchers"
   gem.require_paths = ["lib"]
   gem.version       = RSpec::Sitemap::Matchers::VERSION
+
+  gem.add_development_dependency 'rake'
 end
