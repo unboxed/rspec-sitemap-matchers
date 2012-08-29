@@ -4,9 +4,9 @@ require File.expand_path('../lib/rspec/sitemap/matchers/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ["Attila Györffy"]
   gem.email         = ["attila.gyorffy@unboxedconsulting.com"]
-  gem.description   = %q{RSpec for Sitemaps}
-  gem.summary       = %q{RSpec matchers for the Sitemap protocol}
-  gem.homepage      = ""
+  gem.description   = %q{Sitemaps for RSpec}
+  gem.summary       = %q{Sitemap protocol matchers for RSpec}
+  gem.homepage      = "http://github.com/unboxed/rspec-sitemap-matchers"
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
