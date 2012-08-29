@@ -15,5 +15,6 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = RSpec::Sitemap::Matchers::VERSION
 
+  gem.add_runtime_dependency('rspec')
   gem.add_development_dependency 'rake'
 end
