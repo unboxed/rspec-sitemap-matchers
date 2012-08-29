@@ -1,3 +1,5 @@
+require 'nokogiri'
+
 require "rspec/sitemap/matchers/version"
 
 module RSpec

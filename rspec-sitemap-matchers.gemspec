@@ -16,5 +16,6 @@ Gem::Specification.new do |gem|
   gem.version       = RSpec::Sitemap::Matchers::VERSION
 
   gem.add_runtime_dependency('rspec')
+  gem.add_runtime_dependency('nokogiri')
   gem.add_development_dependency 'rake'
 end
