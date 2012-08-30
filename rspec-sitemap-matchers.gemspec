@@ -17,6 +17,8 @@ Gem::Specification.new do |gem|
 
   gem.add_runtime_dependency('rspec')
   gem.add_runtime_dependency('nokogiri')
+  gem.add_runtime_dependency('debugger')
+
   gem.add_development_dependency 'rake'
   gem.add_development_dependency 'guard-rspec'
 end
