@@ -11,8 +11,8 @@ describe "include_url matcher" do
     it "fails" do
       expect {
         sitemap.should include_url('http://www.not-an-example.com')
-      }.to raise_error {|e|
-        e.message.should match("to include a URL to http://www.not-an-example.com")
+      }.to raise_error { |error|
+        error.message.should match("to include a URL to http://www.not-an-example.com")
       }
     end
   end
@@ -23,6 +23,37 @@ describe "include_url matcher" do
 
   it_should_behave_like "a matcher that accepts a File or a String" do
     let(:sitemap) { fixture('basic').read }
+  end
+
+  describe "#priority" do
+
+    context "when it is missing" do
+      let(:sitemap) { fixture('basic') }
+      it "fails" do
+        expect {
+          sitemap.should include_url('http://www.example.com').priority('0.5')
+        }.to raise_error { |error|
+          error.message.should match('to include a URL to http://www.example.com with a priority of 0.5 but the priority was not set')
+        }
+      end
+    end
+
+    context "when it is set" do
+      let(:sitemap) { fixture('with_valid_priority') }
+      it "passes" do
+        sitemap.should include_url('http://www.example.com').priority('0.5')
+      end
+
+      it "fails" do
+        expect {
+          sitemap.should include_url('http://www.example.com').priority('0.8')
+        }.to raise_error { |error|
+          error.message.should match('to include a URL to http://www.example.com with a priority of 0.8 but it was set to 0.5')
+        }
+      end
+    end
+
+
   end
 
 end
