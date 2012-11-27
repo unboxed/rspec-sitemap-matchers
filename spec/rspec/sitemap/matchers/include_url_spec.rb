@@ -43,6 +43,18 @@ module RSpec::Sitemap::Matchers
       end
     end
 
+    describe "#failure_message" do
+
+      let(:sitemap) { fixture('basic').read }
+
+      it "should not raise error when attributes are queried on missing url" do
+        expect {
+          # not included url
+          sitemap.should include_url('http://www.example.org').priority(0.5)
+        }.to_not raise_error NoMethodError
+      end
+    end
+
     describe "#priority" do
       context "when it is set" do
         let(:sitemap) { fixture('with_valid_priority') }
