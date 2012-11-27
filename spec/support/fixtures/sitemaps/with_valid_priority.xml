@@ -3,5 +3,7 @@
   <url>
     <loc>http://www.example.com</loc>
     <priority>0.5</priority>
+    <lastmod>2012-11-27T16:40:53+01:00</lastmod>
+    <changefreq>weekly</changefreq>
   </url>
 </urlset>

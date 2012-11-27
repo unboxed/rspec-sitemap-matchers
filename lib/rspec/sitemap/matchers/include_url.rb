@@ -29,7 +29,17 @@ module RSpec::Sitemap::Matchers
       self
     end
 
-  private
+    def lastmod(expected_lastmod)
+      expected_attributes.merge!(:lastmod => expected_lastmod)
+      self
+    end
+
+    def changefreq(expected_changefreq)
+      expected_attributes.merge!(:changefreq => expected_changefreq)
+      self
+    end
+
+    private
 
     def expected_attributes
       @expected_attributes ||= {}

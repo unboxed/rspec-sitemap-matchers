@@ -44,31 +44,30 @@ module RSpec::Sitemap::Matchers
     end
 
     describe "#priority" do
-      context "when it is set" do
-        let(:sitemap) { fixture('with_valid_priority') }
-        it "passes" do
-          sitemap.should include_url('http://www.example.com').priority('0.5')
-        end
 
-        it "fails" do
-          expect {
-            sitemap.should include_url('http://www.example.com').priority('0.8')
-          }.to raise_error { |error|
-            error.message.should match('to include a URL to http://www.example.com with a priority of 0.8 but it was set to 0.5')
-          }
-        end
+      it_should_behave_like "an attribute matcher", "priority", 0.5, 0.8 do
+        let(:passing_sitemap) { fixture('with_valid_priority') }
+        let(:failing_sitemap) { fixture('basic') }
       end
 
-      context "when it is NOT set" do
-        let(:sitemap) { fixture('basic') }
-        it "fails" do
-          expect {
-            sitemap.should include_url('http://www.example.com').priority('0.5')
-          }.to raise_error { |error|
-            error.message.should match('to include a URL to http://www.example.com with a priority of 0.5 but the priority was not set')
-          }
-        end
+    end
+
+    describe "#changefreq" do
+
+      it_should_behave_like "an attribute matcher", "changefreq", "weekly", "daily" do
+        let(:passing_sitemap) { fixture('with_valid_priority') }
+        let(:failing_sitemap) { fixture('basic') }
       end
+
+    end
+
+    describe "#lastmod" do
+
+      it_should_behave_like "an attribute matcher", "lastmod", "2012-11-27T16:40:53+01:00", "not prova" do
+        let(:passing_sitemap) { fixture('with_valid_priority') }
+        let(:failing_sitemap) { fixture('basic') }
+      end
+
     end
   end
 end
