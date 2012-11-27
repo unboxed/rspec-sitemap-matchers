@@ -45,7 +45,7 @@ module RSpec::Sitemap::Matchers
       attributes = {}
       matched_node.children.each do |node|
         attributes[node.name.to_sym] = node.text
-      end
+      end unless matched_node.nil?
       attributes
     end
 
