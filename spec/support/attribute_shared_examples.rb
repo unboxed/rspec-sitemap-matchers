@@ -6,6 +6,10 @@ shared_examples_for "an attribute matcher" do |attribute, expected, not_expected
       passing_sitemap.should include_url('http://www.example.com').send(attribute, expected)
     end
 
+    it "passes when invoked with with_ syntax" do
+      passing_sitemap.should include_url('http://www.example.com').send("with_#{attribute}", expected)
+    end
+
     it "fails" do
       expect {
         passing_sitemap.should include_url('http://www.example.com').send(attribute, not_expected)
