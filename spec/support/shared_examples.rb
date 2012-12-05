@@ -1,3 +1,17 @@
+shared_examples_for "a matcher that passes or fails" do
+  it "passes" do
+    sitemap.should include_url('http://www.example.com')
+  end
+
+  it "fails" do
+    expect {
+      sitemap.should include_url('http://www.not-an-example.com')
+    }.to raise_error { |error|
+      error.message.should match("to include a URL to http://www.not-an-example.com")
+    }
+  end
+end
+
 shared_examples_for "an attribute matcher" do |attribute, expected, not_expected|
 
   context "when #{attribute} is set" do

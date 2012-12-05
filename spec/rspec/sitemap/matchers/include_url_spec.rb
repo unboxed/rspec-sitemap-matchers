@@ -6,20 +6,6 @@ module RSpec::Sitemap::Matchers
   
     describe "#matches?" do
 
-      shared_examples_for "a matcher that passes or fails" do
-        it "passes" do
-          sitemap.should include_url('http://www.example.com')
-        end
-
-        it "fails" do
-          expect {
-            sitemap.should include_url('http://www.not-an-example.com')
-          }.to raise_error { |error|
-            error.message.should match("to include a URL to http://www.not-an-example.com")
-          }
-        end
-      end
-
       context "on a File" do
         it_should_behave_like "a matcher that passes or fails" do
           let(:sitemap) { fixture('basic') }
