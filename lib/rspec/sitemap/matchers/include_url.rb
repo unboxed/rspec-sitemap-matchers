@@ -1,5 +1,8 @@
 module RSpec::Sitemap::Matchers
   class IncludeUrl
+
+    ALLOWED_ATTRS = %w(priority changefreq lastmod)
+
     def initialize(expected_location)
       @expected_location = expected_location
     end
@@ -29,7 +32,21 @@ module RSpec::Sitemap::Matchers
       self
     end
 
-  private
+    def lastmod(expected_lastmod)
+      expected_attributes.merge!(:lastmod => expected_lastmod)
+      self
+    end
+
+    def changefreq(expected_changefreq)
+      expected_attributes.merge!(:changefreq => expected_changefreq)
+      self
+    end
+
+    ALLOWED_ATTRS.each do |attr|
+      alias_method "with_#{attr}".to_sym, attr.to_sym
+    end
+
+    private
 
     def expected_attributes
       @expected_attributes ||= {}
