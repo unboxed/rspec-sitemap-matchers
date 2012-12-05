@@ -44,10 +44,13 @@ These matchers can be used on `File`s, `String`s and any arbitary `IO` instance 
 The matchers also support more specific attribution matching, such as priorities as per the Sitemap protocol. These can be chained together:
 
     it { should include_url('http://www.example.com').priority(0.5) }
+    it { should include_url('http://www.example.com').changefreq('weekly') }
+    it { should include_url('http://www.example.com').lastmod('2012-07-16T19:20+01:00') }
+
+Note: You can chanin multiple attribute matchers together, like `.lastod('…').changefreq('…')` etc.
 
 ## Planned features
 
-* More chainable attribute modifiers, such as `lastmod` and `changefreq`
 * Stricter markup and structure validation
 * Encoding validation matcher (Sitemaps must be UTF-8 encoded)
 * `be_a_valid_sitemap` matcher
@@ -64,4 +67,4 @@ The matchers also support more specific attribution matching, such as priorities
 
 ## Copyright
 
-Copyright © 2012 Attila Györffy and [Unboxed Consulting](http://www.unboxedconsulting.com). See LICENSE for details.
+Copyright © 2012 Attila Györffy, [Unboxed Consulting](http://www.unboxedconsulting.com) and [contributors](http://github.com/unboxed/rspec-sitemap-matchers/graphs/contributors). See LICENSE for details.
