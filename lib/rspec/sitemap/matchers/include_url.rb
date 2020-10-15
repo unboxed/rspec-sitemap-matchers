@@ -27,6 +27,12 @@ module RSpec::Sitemap::Matchers
       end.join(' ')
     end
 
+    def failure_message_when_negated
+      "expected #{@actual} not to include a URL to #{@expected_location} but it did"
+    end
+
+
+    
     def priority(expected_priority)
       expected_attributes.merge!(:priority => expected_priority)
       self
